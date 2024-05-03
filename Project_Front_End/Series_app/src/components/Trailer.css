@@ -1,0 +1,13 @@
+.movie {
+    position: relative;
+  }
+  
+  .trailer {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    width: 300px; /* Adjust width as needed */
+    /* Additional styling for trailer container */
+  }
