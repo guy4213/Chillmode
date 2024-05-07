@@ -49,7 +49,7 @@ const SeriesDetails = () => {
     return <div>No data available</div>;
   }
 
-  const currentSeriesDetails = seriesDetails 
+  const currentSeriesDetails = seriesDetails ||seriesProps
 
   return (
     <>
@@ -74,14 +74,12 @@ const SeriesDetails = () => {
             {currentSeriesDetails?.numberOfEpisodes}
           </div>
           <div>
-            {currentSeriesDetails?.seriesDescription !== null ? (
+            {currentSeriesDetails?.seriesDescription !== null && (
               <span>
                 <b>Description:</b>
                 <br /> {currentSeriesDetails?.seriesDescription}
               </span>
-            ) : (
-              <b>Description is null</b>
-            )}
+            ) }
           </div>
           <b>Categories are: </b>
           {Array.isArray(currentSeriesDetails?.categories) &&

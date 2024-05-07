@@ -15,6 +15,7 @@ function Header() {
   if (storedName&&(location.pathname!=="/login"&&
   location.pathname!=="/register"&&
   location.pathname!=="/MainPage"&&
+  
   location.pathname!=="/")){setIsUserExist(true)}
   console.log('isUserExist? ', isUserExist);
   return (
@@ -34,6 +35,8 @@ function Header() {
 )}
       {location.pathname=="/seriesDetails"&&"Welcome To Series Details Screen"}
       {!isUserExist &&  "Welcome To ChillMode"}
+      {location.pathname=="/about"&&"About ChiilMode"}
+
       </h1>
     </header>
   );

@@ -1,3 +1,4 @@
+import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { BsHouse } from "react-icons/bs";
 import DarkModeToggle from "../DarkModeToggle/DarkModeToggle";
@@ -7,7 +8,7 @@ import { useAppState } from "../../AppState";
 
 export const NavBar = () => {
   const { isLoggedIn, logout } = useContext(AuthContext);
-  const {setIsUserExist}=useAppState();
+  const {isUserExist,setIsUserExist}=useAppState();
   const nav=useNavigate();
   
   function executeLogOut(){
@@ -18,9 +19,12 @@ export const NavBar = () => {
   return (
     <nav className="flex flex-row justify-between bg-slate-100 text-xl text-slate-900 dark:bg-inherit dark:text-white shadow-lg mb-1 p-4">
       <div className="flex flex-row gap-10">
-        <NavLink to="/">
+       {isUserExist&& <NavLink to="/Choose">
           <BsHouse />
-        </NavLink>
+        </NavLink>}
+        {!isUserExist&& <NavLink to="/">
+          <BsHouse />
+        </NavLink>}
         { isLoggedIn && <NavLink to="/seriesList">SeriesList</NavLink>}
         { isLoggedIn && <NavLink to="/about">About</NavLink>}
       </div>
