@@ -49,25 +49,25 @@ allowing users to do exclusive actions that cannot being done in other review we
 <br><br>
 
 
-<img src="MainPage.png" width="1200" height="600">
+<img src="MainPage.png" width="1800" height="600">
 <br>
-<img src="Register.png" width="1200" height="600">
+<img src="Register.png" width="1800" height="600">
 <br>
-<img src="Login.png" width="1200" height="600">
+<img src="Login.png" width="1800" height="600">
 <br>
-<img src="Choose.png" width="1200" height="600">
+<img src="Choose.png" width="1800" height="600">
 <br>
-<img src="AddingScreen(For_Admin_Only).png" width="1200" height="600">
+<img src="AddingScreen(For_Admin_Only).png" width="1800" height="600">
 <br>
-<img src="About.png" width="1200" height="600">
+<img src="About.png" width="1800" height="600">
 <br>
-<img src="SeriesList.png" width="1200" height="600">
+<img src="SeriesList.png" width="1800" height="600">
 <br>
-<img src="seriesDetails.png" width="1200" height="600">
+<img src="seriesDetails.png" width="1800" height="600">
 <br>
-<img src="Trailer.png" width="1200" height="600">
+<img src="Trailer.png" width="1800" height="600">
 <br>
-<img src="TrailerFullScreen.png" width="1200" height="600">
+<img src="TrailerFullScreen.png" width="1800" height="600">
 <br>
-<img src="TrailerFullScreen.png" width="1200" height="600">
+<img src="TrailerFullScreen.png" width="1800" height="600">
 <br>
