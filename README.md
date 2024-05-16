@@ -1,4 +1,5 @@
-<div className='text-white text-center ml-72 mr-72 text-2xl font-serif space-y-4 flex flex-col justify-between '>
+<div >
+      
       <p>ChillMode mission is to display information about all the trending serieses.<br /> 
         allowing users to do exclusive actions that cannot being done in other review websites.  </p>
         <h1 className='text-3xl font-semibold font-sans'> Actions such as:</h1>
