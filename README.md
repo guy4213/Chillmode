@@ -49,26 +49,34 @@ allowing users to do exclusive actions that cannot be done in other review websi
 * Used Design Patterns such as: Singleton,Factory method,Builder,Dependency Injection,Front controller,SOLID Principles,Model-View-Controller (MVC),Repositories,Services,Spring Beans,Bean Configuration,Abstract Classes & interfaces <br>
 
 <br><br>
-
-
-<img src="MainPage.png" width="1800" height="600">
-<br>
-<img src="Register.png" width="1800" height="600">
-<br>
-<img src="Login.png" width="1800" height="600">
-<br>
-<img src="Choose.png" width="1800" height="600">
-<br>
-<img src="AddingScreen(For_Admin_Only).png" width="1800" height="600">
-<br>
+ <h2>About</h2>
 <img src="About.png" width="1800" height="600">
 <br>
+<h2>MainPage</h2>
+<img src="MainPage.png" width="1800" height="600">
+<br>
+<h2>Register</h2>
+<img src="Register.png" width="1800" height="600">
+<br>
+<h2>Login</h2>
+<img src="Login.png" width="1800" height="600">
+<br>
+<h2>Choose</h2>
+<img src="Choose.png" width="1800" height="600">
+<br>
+<h2>Adding Screen</h2>
+<img src="AddingScreen(For_Admin_Only).png" width="1800" height="600">
+<br>
+<h2>Series List</h2>
 <img src="SeriesList.png" width="1800" height="600">
 <br>
+<h2>Series Details</h2>
 <img src="seriesDetails.png" width="1800" height="600">
 <br>
+<h2>Trailer</h2>
 <img src="Trailer.png" width="1800" height="600">
 <br>
+<h2>Trailer Full Screen</h2>
 <img src="TrailerFullScreen.png" width="1800" height="600">
 <br>
 
