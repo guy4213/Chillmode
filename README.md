@@ -1,16 +1,17 @@
 
- <h1>welcome to the  international sport web application:</h1>
+ <h1>Welcome To Chillmode Website:</h1>
 
- <h2>The project mission:</h2>
-this application is designed to combine data and knowledge in sports.
+ <h2>Project mission is :</h2>
+ChillMode mission is to display information about all the trending serieses.<br /> 
+allowing users to do exclusive actions that cannot being done in other review websites.
 
-<h2>seperated into multiple parts:</h2>
+<h2> Actions such as:</h2>
 
-<h3>first part: </h3>
- displaying the athletes in 2 categories:
- ---all  athletes
- ---soccer athletes
- 
+<p className='m-0 p-0 ' >1. <b className='text-sky-500 '>See full series list</b>,seperated by categories./p>
+      <p >2. <b className='text-sky-500'>Search</b> through the list by series name. </p>
+      <p >3. <b className='text-sky-500'>Rate</b> each series.</p>
+      <p >4. <b className='text-sky-500'>View</b> series details. </p>
+      <p >5. <b className='text-sky-500'>Watch</b>  trailer of each series.</p>
 
 <h3>second part: </h3>
  displaying the individual athlete.
@@ -21,14 +22,20 @@ trivia questions about the selected player/athlete.
 
 
 <h3>features:</h3>
-Fully written in Kotlin language.<br>
-Built on MVVM architecture pattern.<br>
-Uses Android Architecture Components, specifically ViewModel and LiveData.<br>
-Uses Retrofit for making API calls.<br>
-Uses Picasso for image loading.<br>
-uses hilt for sharing components with the whole app,also used for building and dependency injection in Android projects.<br>
-using coroutines to work Asynchronous.<br>
-using room to create the database for the app.<br>
+<h4>FE:</h4>
+Fully written in React,Ts  languages.<br>
+using css & scss& Tailwind.css for best practice design.<br>
+implementing SOLID fundamentals in programming<br>
+Using SweetAlert for errors and alerts.<br>
+Uses React routes for navigation purposes .<br>
+Using refs for sliding between serieses(like netflix.)<br>
+using local Storage , state  and context for saving data purposes.<br>
+using Axios for http calls.<br>
+AppState component is being used as a local data source for the website.<br>
+ThemeProvider is being used as a night/day display for the NavBar .<br>
+AppState component is being used as a local data source for the website.<br>
+AuthContextProvider is being used as a security for the web, checking with jwt if the user is exist . <br>
+
 <br><br>
 
 
