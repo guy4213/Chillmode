@@ -15,11 +15,11 @@ allowing users to do exclusive actions that cannot being done in other review we
 
 
 
-<h3>features:</h3>
+<h3>Features:</h3>
 <h4>FE:</h4>
 * Fully written in React,Ts  languages.<br>
 *  using css & scss& Tailwind.css for best practice design.<br>
-* implementing SOLID fundamentals in programming<br>
+* implementing SOLID Principles in programming<br>
 * Using SweetAlert for errors and alerts.<br>
 * Uses React routes for navigation purposes .<br>
 * Using refs for sliding between serieses(like netflix.)<br>
@@ -29,22 +29,24 @@ allowing users to do exclusive actions that cannot being done in other review we
 * ThemeProvider is being used as a night/day display for the NavBar .<br>
 * AppState component is being used as a local data source for the website.<br>
 * AuthContextProvider is being used as a security for the web, checking with jwt if the user is exist . <br>
-
+* Used Design Patterns such as: AuthContextProvider,AppState, SOLID Principles,Custom React Hooks,ThemeProvider,React Router,Container/Presenter Patter,Auth HOC,Code Splitting(Async),Data Access,Actions and Dispatchers  <br>
 <br><br>
 
 <h4>BE:</h4>
-* Fully written in React,Ts  languages.<br>
-*  using css & scss& Tailwind.css for best practice design.<br>
+* Fully written in Spring & Java language.<br>
+*  using My Sql server & sql Queries for Db Management.<br>
 * implementing SOLID fundamentals in programming<br>
-* Using SweetAlert for errors and alerts.<br>
-* Uses React routes for navigation purposes .<br>
-* Using refs for sliding between serieses(like netflix.)<br>
-* using local Storage , state  and context for saving data purposes.<br>
-* using Axios for http calls.<br>
-* AppState component is being used as a local data source for the website.<br>
-* ThemeProvider is being used as a night/day display for the NavBar .<br>
-* AppState component is being used as a local data source for the website.<br>
-* AuthContextProvider is being used as a security for the web, checking with jwt if the user is exist . <br>
+* implementing Spring scheme- entity-repo-service-controller-client.<br>
+* Uses Lombok all kinds of annotatios to shorten the code. such as: Setter,getter, Variety of constructors .<br>
+* Using JWT for authentication, created by RSAKEyProperties.<br>
+* Using Password Encoder for authentication & security.<br>
+* Jpa Repository for db actions such as add new entity , delete , update by the service.<br>
+* using Custom  Exceptions for rating, user exist, resource not found,etc..<br>
+* Validation library(jakarta) for custom checks on user types.<br>
+* Using Role entity to check if user is an admin .<br>
+* ModelMapper for transferring between entities & dtos.<br>
+* Response Entity to alert if the response status is valid/not. <br>
+* Used Design Patterns such as: Singleton,Factory method,Builder,Dependency Injection,Front controller,SOLID Principles,Model-View-Controller (MVC),Repositories,Services,Spring Beans,Bean Configuration,Abstract Classes & interfaces <br>
 
 <br><br>
 
@@ -69,5 +71,4 @@ allowing users to do exclusive actions that cannot being done in other review we
 <br>
 <img src="TrailerFullScreen.png" width="1800" height="600">
 <br>
-<img src="TrailerFullScreen.png" width="1800" height="600">
-<br>
+
