@@ -1,7 +1,7 @@
 <div >
       
-      <h1>ChillMode 
- </h1>.<br /> .
+      <h1>ChillMode </h1>
+
       ChillMode mission is to display information about all the trending serieses
         allowing users to do exclusive actions that cannot being done in other review websites.  </p>
         <h1 className='text-3xl font-semibold font-sans'> Actions such as:</h1>
