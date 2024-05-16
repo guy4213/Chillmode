@@ -2,7 +2,7 @@
 
  <h2>Project mission is :</h2>
 ChillMode mission is to display information about all the trending serieses.<br /> 
-allowing users to do exclusive actions that cannot being done in other review websites.
+allowing users to do exclusive actions that cannot be done in other review websites.
 
 <h2> Actions such as:</h2>
 
