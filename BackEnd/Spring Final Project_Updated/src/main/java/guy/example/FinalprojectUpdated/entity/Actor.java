@@ -12,6 +12,10 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@Table(uniqueConstraints = {
+        @UniqueConstraint(name = "actorName", columnNames = {"actorName"})
+
+})
 public class Actor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

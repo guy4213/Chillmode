@@ -37,8 +37,6 @@ public class SeriesController {
         System.out.println("response DTO= " + res.getAverageRate());
         return ResponseEntity.ok(res);
 
-
-
     }
     @PostMapping
     public ResponseEntity<SeriesResponseDto> addSeries(@Valid @RequestBody

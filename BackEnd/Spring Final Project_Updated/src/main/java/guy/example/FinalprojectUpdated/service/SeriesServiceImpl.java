@@ -1,8 +1,6 @@
 package guy.example.FinalprojectUpdated.service;
 
 
-import guy.example.FinalprojectUpdated.dto.actorDto.response.ActorResponseDto;
-import guy.example.FinalprojectUpdated.dto.actorDto.response.DeleteActorResponseDto;
 import guy.example.FinalprojectUpdated.dto.seriesDto.SeriesListDto;
 import guy.example.FinalprojectUpdated.dto.seriesDto.request.AddSeriesRequestDto;
 import guy.example.FinalprojectUpdated.dto.seriesDto.request.UpdateRequestSeries;
@@ -98,48 +96,95 @@ public class SeriesServiceImpl implements SeriesService {
 
     public SeriesResponseDto addCategories(long seriesId, String[] categoryNames) {
         Series seriesEntity = getSeriesByIdOrThrow(seriesId);
-        var categoryList = Arrays.stream(categoryNames)
-                .map(categoryRepository::findCategoryByNameIgnoreCase)
-                .filter(Objects::nonNull) // Filter out null elements
-                .toList();
 
-        // Check if any null elements were filtered out
-        if (categoryList.size() < categoryNames.length) {
-            throw new IllegalArgumentException("One or more categories not found");
+        var categoryList = new ArrayList<Category>();
+
+        // Create a list to hold names of actors not found
+        List<String> notFoundCategories = new ArrayList<>();
+
+        // Iterate over actor names
+        for (String categoryName : categoryNames) {
+            // Find actor by name
+            Category category = categoryRepository.findCategoryByNameIgnoreCase(categoryName);
+
+            // If actor is found, add it to the list, otherwise add the name to notFoundActors list
+            if (category != null) {
+                categoryList.add(category);
+            } else {
+                notFoundCategories.add(categoryName);
+            }
         }
 
+        // Add only the found actors to the seriesEntity
         seriesEntity.getCategories().addAll(categoryList);
 
-        var saved = seriesRepository.save(seriesEntity);
-        System.out.println(saved.getCategories());
-        return modelMapper.map(saved, SeriesResponseDto.class);
-    }
+        // Save seriesEntity
+        Series savedSeries = seriesRepository.save(seriesEntity);
 
-    public SeriesResponseDto addActors(long seriesId, String[] ActorNames) {
-        Series seriesEntity = getSeriesByIdOrThrow(seriesId);
-        var ActorList = Arrays.stream(ActorNames)
-                .map(actorRepository::findActorByActorNameIgnoreCase)
-                .filter(Objects::nonNull) // Filter out null elements
-                .toList();
-        if (ActorList.size() < ActorNames.length) {
-            throw new IllegalArgumentException("One or more Actors not found");
+        // Map saved seriesEntity to SeriesResponseDto
+        SeriesResponseDto responseDto = modelMapper.map(savedSeries, SeriesResponseDto.class);
+
+        // If any actors were not found, throw an IllegalArgumentException with appropriate message
+        if (!notFoundCategories.isEmpty()) {
+            throw new IllegalArgumentException("Categories not found: " + notFoundCategories + "; " +
+                    "Categories that have been added: " + categoryList.stream()
+                    .map(Category::getName)
+                    .collect(Collectors.joining(", ")));
+
         }
-        Comparator<Actor> idComparator = Comparator.comparing(Actor::getId);
 
-// Sort the ActorList using the idComparator
-        ActorList.sort(idComparator);
-        seriesEntity.getActors().addAll(ActorList);
-        var saved = seriesRepository.save(seriesEntity);
-        System.out.println(saved.getActors());
-        return modelMapper.map(saved, SeriesResponseDto.class);
+        // Return the SeriesResponseDto
+        return responseDto;
     }
 
+    public SeriesResponseDto addActors(long seriesId, String[] actorNames) {
+        Series seriesEntity = getSeriesByIdOrThrow(seriesId);
+
+        var actorList = new ArrayList<Actor>();
+
+        // Create a list to hold names of actors not found
+        List<String> notFoundActors = new ArrayList<>();
+
+        // Iterate over actor names
+        for (String actorName : actorNames) {
+            // Find actor by name
+            Actor actor = actorRepository.findActorByActorNameIgnoreCase(actorName);
+
+            // If actor is found, add it to the list, otherwise add the name to notFoundActors list
+            if (actor != null) {
+                actorList.add(actor);
+            } else {
+                notFoundActors.add(actorName);
+            }
+        }
+
+        // Add only the found actors to the seriesEntity
+        seriesEntity.getActors().addAll(actorList);
+
+        // Save seriesEntity
+        Series savedSeries = seriesRepository.save(seriesEntity);
+
+        // Map saved seriesEntity to SeriesResponseDto
+        SeriesResponseDto responseDto = modelMapper.map(savedSeries, SeriesResponseDto.class);
+
+        // If any actors were not found, throw an IllegalArgumentException with appropriate message
+        if (!notFoundActors.isEmpty()) {
+            throw new IllegalArgumentException("Actors not found: " + notFoundActors + "; " +
+                    "Actors that have been added: " + actorList.stream()
+                    .map(Actor::getActorName)
+                    .collect(Collectors.joining(", ")));
+
+        }
+
+        // Return the SeriesResponseDto
+        return responseDto;
+    }
 
     public SeriesResponseDto addDirector(long seriesId, String DirectorName) {
         Series seriesEntity = getSeriesByIdOrThrow(seriesId);
         Director director = directorRepository.findDirectorByDirectorNameIgnoreCase(DirectorName);
         if (director==null) {
-            throw new IllegalArgumentException("One or more Actors not found");
+            throw new IllegalArgumentException(" Director " +DirectorName +" cant be found");
         }
         seriesEntity.setDirector(director);
         var saved = seriesRepository.save(seriesEntity);

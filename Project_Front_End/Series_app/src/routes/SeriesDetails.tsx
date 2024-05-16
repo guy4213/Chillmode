@@ -6,7 +6,6 @@ import { Actor, Category } from "../@types/types";
 import StarRating from "../components/star";
 import { useAppState } from "../AppState";
 import { SeriesService } from "../services/series-service";
-
 const SeriesDetails = () => {
   const nav = useNavigate();
   const location = useLocation();
@@ -49,7 +48,7 @@ const SeriesDetails = () => {
     return <div>No data available</div>;
   }
 
-  const currentSeriesDetails = seriesDetails ||seriesProps
+  const currentSeriesDetails = seriesDetails ||seriesProps;
 
   return (
     <>
@@ -67,8 +66,8 @@ const SeriesDetails = () => {
             <b>Year published :</b> {currentSeriesDetails?.publishedYear}
           </div>
           <div>
-          <b>average rate is: </b> {currentSeriesDetails?.averageRate.toFixed(2)}
-                    </div>
+            <b>average rate is: </b> {currentSeriesDetails?.averageRate.toFixed(2)}
+          </div>
           <div>
             <b>Number Of Episodes is: </b>
             {currentSeriesDetails?.numberOfEpisodes}
@@ -79,34 +78,46 @@ const SeriesDetails = () => {
                 <b>Description:</b>
                 <br /> {currentSeriesDetails?.seriesDescription}
               </span>
-            ) }
+            )}
           </div>
+         { currentSeriesDetails?.categories.length!==0 ? (
+         <div>
           <b>Categories are: </b>
-          {Array.isArray(currentSeriesDetails?.categories) &&
-            currentSeriesDetails?.categories.map((categoryItem: Category, index: number) => (
+          {currentSeriesDetails?.categories.map((categoryItem: Category, index: number) => (
               <span key={index}>
                 {categoryItem.name} {index < currentSeriesDetails?.categories.length - 1 && ","}
               </span>
             ))}
-          <div>
-            <b>Actors are: </b>
-            {Array.isArray(currentSeriesDetails?.actors) &&
-              currentSeriesDetails?.actors.map((actorItem: Actor, index: number) => (
+            </div>):(
+            <div>No categories has been Provided</div>
+          )}
+          {currentSeriesDetails?.actors.length!==0 ?(
+            <div>
+              <b>Actors are: </b>
+              {currentSeriesDetails?.actors.map((actorItem: Actor, index: number) => (
                 <span key={index}>
                   {actorItem.actorName} {index < currentSeriesDetails?.actors.length - 1 && ","}
                 </span>
-              ))}
-           { currentSeriesDetails?.director!== null?(<div>
+              ))} 
+            </div>
+          ) : (
+            <div>No <b>actors</b> has been Provided</div>
+          )}
+
+          {currentSeriesDetails?.director!== null ? (
+            <div>
               <b>The director is: </b>
               {currentSeriesDetails?.director.directorName}
-            </div>):
-            (<div>director name is null!</div> )}
-            <StarRating
-              key={currentSeriesDetails?.id}
-              id={currentSeriesDetails?.id || 0}
-              initialRating={0}
-              fetchData={fetchData}            />
-          </div>
+            </div>
+          ) : (
+            <div>No <b>director</b> has been Provided</div>
+          )}
+          <StarRating
+            key={currentSeriesDetails?.id}
+            id={currentSeriesDetails?.id || 0}
+            initialRating={0}
+            fetchData={fetchData}
+          />
         </div>
       </div>
       <button onClick={() => nav("/seriesList")}>

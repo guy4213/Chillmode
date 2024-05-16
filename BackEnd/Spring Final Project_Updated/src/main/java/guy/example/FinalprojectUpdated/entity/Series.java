@@ -11,6 +11,10 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@Table(uniqueConstraints = {
+        @UniqueConstraint(name = "seriesName", columnNames = {"seriesName"}),
+        @UniqueConstraint(name = "img", columnNames = {"img"})
+})
 public class Series {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)  //AUTO_INCREMENT @GeneratedValue

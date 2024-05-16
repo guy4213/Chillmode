@@ -12,17 +12,20 @@ function Header() {
   const { Name, isUserExist,setIsUserExist } = useAppState();
   const storedName = localStorage.getItem('Name') || '';
   console.log('Stored Name:', storedName);
-  if (storedName&&(location.pathname!=="/login"&&
-  location.pathname!=="/register"&&
-  location.pathname!=="/MainPage"&&
-  
-  location.pathname!=="/")){setIsUserExist(true)}
+  if (storedName){setIsUserExist(true)}
   console.log('isUserExist? ', isUserExist);
   return (
     <header>
-        <div className="font-extrabold text-3xl text-amber-500 shadow-2xl rounded-lg ">{isUserExist&&
+   <div className="font-extrabold text-3xl text-amber-500 shadow-2xl rounded-lg ">
+    {isUserExist&&    location.pathname!=="/login"&&
+  location.pathname!=="/register"&&
+  location.pathname!=="/MainPage"&&
+  
+  location.pathname!=="/"&& 
          "Hello "+Name+"!"}</div>
       <h1>
+
+
    
       
       {Name &&location.pathname=="/seriesList" && "Welcome To SeriesList Screen"}

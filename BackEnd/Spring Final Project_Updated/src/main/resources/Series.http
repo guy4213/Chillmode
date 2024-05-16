@@ -22,10 +22,10 @@ content-Type: application/json
 POST  http://localhost:8084/api/v1/series/addCategoriesByNames?SeriesId=2&categoryNames=ho
 
 ###Add ACTORS to A Series
-POST http://localhost:8084/api/v1/series/addActorsByNames?SeriesId=3&ActorNames=sarkan bulat,daniel moreshet
+POST http://localhost:8084/api/v1/series/addActorsByNames?SeriesId=1&ActorNames=daniel moreshet,x,g
 
 ###Add Director to A Series
-POST http://localhost:8084/api/v1/series/addDirector?SeriesId=3&DirectorName=linoy karzia sheli
+POST http://localhost:8084/api/v1/series/addDirector?SeriesId=1&DirectorName=linoy karzia sheli
 
 
 

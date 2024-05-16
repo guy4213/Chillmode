@@ -1,5 +1,6 @@
 import  { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import React from 'react';
 
 function Series(props:any) {
     const [categories, setCategories] = useState(props.categories);
