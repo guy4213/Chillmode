@@ -1,7 +1,7 @@
 <div >
       
       <h1>ChillMode ![image](https://github.com/guy4213/Chillmode/assets/113546078/f70d1eb8-d69d-4960-a54b-463e8841d754)
- </h1>.<br /> 
+ </h1>.<br /> .
       ChillMode mission is to display information about all the trending serieses
         allowing users to do exclusive actions that cannot being done in other review websites.  </p>
         <h1 className='text-3xl font-semibold font-sans'> Actions such as:</h1>
