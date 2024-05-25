@@ -36,7 +36,7 @@ GET http://127.0.0.1:8084/api/v1/series/top/5
 GET http://localhost:8084/api/v1/series/last/2
 
 ###get all serieses
-GET http://127.0.0.1:8084/api/v1/series?pageNo=0&pageSize=40&sortDir=asc&sortBy=seriesName
+GET http://127.0.0.1:8084/api/v1/series?pageNo=0&pageSize=40&sortDir=asc&sortBy=id
 
 ### Delete specific series
 DELETE http://localhost:8084/api/v1/series/2
@@ -59,8 +59,8 @@ GET http://127.0.0.1:8084/api/v1/series/10
 
 
 ###Search-searching by seriesName
-GET http://localhost:8084/api/v1/series/contains/batman
+GET http://localhost:8084/api/v1/series/contains/12
 
 
 ### delete all Serieses
-DELETE http://localhost:8084/api/v1/series/deleteAll
+DELETE http://localhost:8084/api/v1/series/deleteAll.
