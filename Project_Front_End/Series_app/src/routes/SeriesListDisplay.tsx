@@ -12,7 +12,7 @@ const SeriesListDisplay = () => {
     const [categoryArray,setCategoryArray]=useState<Array<Category>>([]);
     const { isLoggedIn, logout } = useContext(AuthContext);
   const nav=useNavigate();
-  const {setIsUserExist}=useAppState();
+  
   const [searchVal,setSearchVal]=useState('');
   
     useEffect(() => {
@@ -31,7 +31,7 @@ const SeriesListDisplay = () => {
 
     
       function executeLogOut(){
-        setIsUserExist(false)
+        
         logout()
          nav("/MainPage")
       }

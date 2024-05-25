@@ -1,6 +1,7 @@
 import  { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import React from 'react';
+import StarRating from "./star";
 
 function Series(props:any) {
     const [categories, setCategories] = useState(props.categories);
@@ -48,7 +49,8 @@ function goToDetails(){
 }
     return (
         <div>
-            {isCategoryExist && props.seriesName.includes(props.search)&& (
+            {/* searching,with ignore case by lowercasing both strings */}
+            {isCategoryExist && props.seriesName.toLowerCase().includes(props.search.toLowerCase())&& (
                 <li className="series">
                     <img
                         onDoubleClick={goToDetails}
@@ -56,7 +58,16 @@ function goToDetails(){
                         alt={props.seriesName}
                     />
                     <h2 className="text-lg "><b>{props.seriesName}</b></h2>
-         
+                    <div className="text-center">
+                        <StarRating 
+               key={props.id}
+                id={props.id }
+               initialRating={props.averageRate}
+            fetchData={()=>{}}
+            button={false}
+
+                />
+         </div>
                 </li>
                 
             )}

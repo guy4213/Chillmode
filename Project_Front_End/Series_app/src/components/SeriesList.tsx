@@ -13,8 +13,7 @@ const SeriesList = (props:any) => {
     const [itemsPerPage, setitemsPerPage] = useState(0);
     const location = useLocation();
 
-    console.log(location.pathname); // Logs the pathname of the current location
-    // You can also access other properties of the location object if needed
+   
   
   useEffect(() => {
     
@@ -42,7 +41,6 @@ const SeriesList = (props:any) => {
   const fetchData = async () => {
     try {
       const seriesResponse = await SeriesService.getAllSeries()
-      console.log("series Array  :   " + JSON.stringify(seriesResponse.series))
       setSeriesPage(seriesResponse);
      
      

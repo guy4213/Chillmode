@@ -4,11 +4,9 @@ import { SeriesItemDetails } from './@types/types';
 const AppStateContext = createContext<{
   Name: string;
   setUserName: React.Dispatch<React.SetStateAction<string>>;
-  isUserExist: boolean;
-  setIsUserExist: React.Dispatch<React.SetStateAction<boolean>>;
-  seriesDetails: SeriesItemDetails | null; // Correctly type seriesDetails
+    seriesDetails: SeriesItemDetails | null; // Correctly type seriesDetails
   setSeriesDetails: React.Dispatch<React.SetStateAction<SeriesItemDetails | null>>; 
-  
+  storedName:string;
   // Correctly type setSeriesDetails
 } | null>(null);
 
@@ -21,7 +19,6 @@ export const AppStateProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   // Retrieve seriesDetails from localStorage or set it to null if it doesn't exist
   const storedSeries = localStorage.getItem('seriesDetails');
   const [seriesDetails, setSeriesDetails] = useState<SeriesItemDetails | null>(null);
-  const [isUserExist, setIsUserExist] = useState(false);
 
   useEffect(() => {
     // Update local storage whenever the Name state changes
@@ -34,7 +31,7 @@ export const AppStateProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   }, [seriesDetails]); // This effect will trigger whenever seriesDetails changes
 
   // Create context value object
-  const value = { seriesDetails, setSeriesDetails, Name, setUserName, isUserExist, setIsUserExist };
+  const value = { seriesDetails, setSeriesDetails, Name, setUserName,storedName };
 
   return (
     // Provide context value to children components

@@ -11,12 +11,14 @@ const router = createBrowserRouter(routes);
 
 const div = document.getElementById("root")!;
 ReactDOM.createRoot(div).render(
-  <AppStateProvider>
+  
   <AuthContextProvider>
+    <AppStateProvider>
   <ThemeProvider>
       <RouterProvider router={router} />
       </ThemeProvider>
-      </AuthContextProvider>
       </AppStateProvider>
+      </AuthContextProvider>
+      
  
 );

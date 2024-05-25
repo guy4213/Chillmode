@@ -20,7 +20,7 @@ export type LoginRequest = {
 
 const Login = () => {
   const nav = useNavigate();
-  const { setUserName, Name,  setIsUserExist } = useAppState();
+  const { setUserName, Name } = useAppState();
   const { login, isLoggedIn } = useContext(AuthContext);
 
   // useEffect to check if user is already logged in
@@ -30,14 +30,18 @@ const Login = () => {
     }
   }, [isLoggedIn, Name, nav]);
 
-  const { register, handleSubmit, formState: { errors } } = useForm({
+  const { 
+     register,
+     handleSubmit, 
+     formState: { errors } ,
+     control} = useForm({
     mode: "onChange",
   });
 
   const onSubmit = async (data:any) => {
     try {console.log("data= "+JSON.stringify(data));
       setUserName(data.userName);
-      setIsUserExist(true);
+      
       const res = await Auth.login(data);
       login(res.jwt);
       await Dialogs.success("Logged in");
@@ -71,7 +75,8 @@ const Login = () => {
         <button type="submit" className='signInButton'>Sign In</button>
         <button className='signInButton' onClick={() => nav("/MainPage")}>Return</button>
       </form>
-    </div>
+      <DevTool control={control} />
+          </div>
   );
 }
 

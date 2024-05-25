@@ -5,6 +5,7 @@ import { Auth } from '../services/auth-service';
 import { Dialogs } from '../ui/dialogs';
 import InputField from '../components/InputField';
 import { AuthContext } from '../contexts/AuthContext';
+import { DevTool } from '@hookform/devtools';
 
 
 export type RegisterRequest = {
@@ -78,6 +79,7 @@ export type RegisterRequest = {
         return
       </button>
     </form>
+    <DevTool control={control} />
   </div>
   )
 }

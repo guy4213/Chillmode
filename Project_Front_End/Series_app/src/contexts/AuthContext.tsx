@@ -2,7 +2,7 @@ import React from "react";
 import { createContext, useEffect, useState } from "react";
 import { FC } from "../@types/types";
 
-interface AuthContextType {
+export interface AuthContextType {
   isLoggedIn: boolean;
   jwt?: string | null;
   login: (jwt: string) => void;
@@ -39,22 +39,19 @@ export const AuthContextProvider: FC = ({ children }) => {
   }, []);
 
   const login = (jwt: string) => {
-  
 
-   
     setJWT(jwt);
     setIsLoggedIn(true);
     localStorage.setItem("token", jwt);
   };
 
-  const logout = () => {
+ const logout = () => {
   
    
     setJWT(null);
     setIsLoggedIn(false);
     localStorage.removeItem("token");
-   
-
+    
     
   };
 

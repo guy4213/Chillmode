@@ -45,7 +45,7 @@ const SeriesDetails = () => {
   }, [seriesProps]);
   
   if (!seriesProps && !seriesDetails) {
-    return <div>No data available</div>;
+    return <div></div>;
   }
 
   const currentSeriesDetails = seriesDetails ||seriesProps;
@@ -117,6 +117,7 @@ const SeriesDetails = () => {
             id={currentSeriesDetails?.id || 0}
             initialRating={0}
             fetchData={fetchData}
+            button={true}
           />
         </div>
       </div>

@@ -222,6 +222,26 @@
   }
   
 
+  .star {
+    font-size: 24px;
+    color: gray;
+    cursor: pointer;
+  }
   
-   
- 
+  .star.gold {
+    color: gold;
+  }
+  
+  /* Half star */
+  .half-star {
+    position: relative;
+  }
+  
+  .half-star::before {
+    content: '\u2605'; /* Full Star Unicode */
+    position: absolute;
+    left: 0;
+    color: gold;
+    width: 50%;
+    overflow: hidden;
+  }

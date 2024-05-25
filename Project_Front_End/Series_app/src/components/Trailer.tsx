@@ -1,101 +1,86 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import "./Trailer.css";
 
-// Declare global YT namespace
-declare global {
-  interface Window {
-    YT: any;
-  }
+interface TrailerProps {
+  trailer: string;
+  src: string;
+  alt: string;
 }
 
-export const Trailer = (props:any) => {
-  // Declare player variable
-  let player: any = null;
-const url:string = props.trailer;
-console.log(url)
-let videoId="";
-if (url!==null)
-    {
-        videoId = url.split("v=")[1];
+export const Trailer: React.FC<TrailerProps> = ({ trailer, src, alt }) => {
+  const playerRef = useRef<YT.Player | null>(null);
+  const videoId = trailer ? trailer.split("v=")[1] : '';
+
+  useEffect(() => {
+    if (!window.YT) {
+      const tag = document.createElement('script');
+      tag.src = "https://www.youtube.com/iframe_api";
+      const firstScriptTag = document.getElementsByTagName('script')[0];
+      if (firstScriptTag && firstScriptTag.parentNode) {
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+      }
     }
-    
-    
-console.log(videoId); 
-  // Function to initialize the YouTube Player API
-  function initializeYouTubePlayer() {
-    if ((window as any).YT && typeof (window as any).YT.Player === 'function') {
-      // If the YouTube Player API is available, create a new player instance
-      player = new (window as any).YT.Player('trailer', {
+
+    window.onYouTubeIframeAPIReady = initializeYouTubePlayer;
+
+    return () => {
+      if (playerRef.current) {
+        playerRef.current.destroy();
+      }
+    };
+  }, []);
+
+  const initializeYouTubePlayer = () => {
+    if (window.YT && typeof window.YT.Player === 'function') {
+      playerRef.current = new window.YT.Player('trailer', {
         height: '315',
         width: '560',
-        videoId:  videoId , // Replace with your video ID
+        videoId: videoId,
         events: {
           'onReady': onPlayerReady
         }
       });
     }
-  }
+  };
 
-  // Function called when the player is ready
-  function onPlayerReady(event: YT.PlayerEvent) {
-    // Autoplay the video
+  const onPlayerReady = (event: YT.PlayerEvent) => {
     if (event.target && event.target.playVideo) {
       event.target.playVideo();
     }
-  }
+  };
 
-  function showTrailer(event: React.MouseEvent<HTMLAnchorElement>) {
-    // Prevent default link behavior
+  const showTrailer = (event: React.MouseEvent<HTMLAnchorElement>) => {
     event.preventDefault();
-  
-    // Get the trailer element
-    const trailer = document.getElementById('trailer') as HTMLDivElement;
-  
-    // Show the trailer
-    trailer.style.display = 'block';
-  
-    // Reinitialize the YouTube player
-    if(!player)
-    initializeYouTubePlayer();
-  
-    // Reset player state
-    if (player) {
-      player.seekTo(0); // Reset the player to the beginning
-      player.playVideo();
+    const trailerElement = document.getElementById('trailer') as HTMLDivElement;
+    trailerElement.style.display = 'block';
+
+    if (!playerRef.current) {
+      initializeYouTubePlayer();
+    } else {
+      playerRef.current.seekTo(0, true);
+      playerRef.current.playVideo();
     }
-  }
-// Function to hide the trailer
-function hideTrailer(player: any) {
-    // Get the trailer element
-    const trailer = document.getElementById('trailer') as HTMLDivElement;
-    
-    // Pause the video
-    if (player && player.pauseVideo) {
-      player.pauseVideo();
+  };
+
+  const hideTrailer = () => {
+    const trailerElement = document.getElementById('trailer') as HTMLDivElement;
+    if (playerRef.current && playerRef.current.pauseVideo) {
+      playerRef.current.pauseVideo();
     }
-  
-    // Hide the trailer
-    trailer.style.display = 'none';
-  }
+    trailerElement.style.display = 'none';
+  };
 
+  const handleClicks = (event: React.MouseEvent<HTMLImageElement>) => {
+    event.preventDefault();
+    window.open(trailer, '_blank');
+  };
 
-    // Function to handle double click event
-function handleClicks(event: React.MouseEvent<HTMLImageElement>) {
-  // Prevent default behavior
-  event.preventDefault();
-
-  // Construct the video URL
-  const videoUrl = url;
-
-  // Open the video URL in a new tab
-  window.open(videoUrl, '_blank');
-}
   return (
     <div className="movie">
-<a href="#" className="movie-link" onMouseOver={showTrailer} onMouseOut={() => hideTrailer(player)}>
-        
-        <img src={props.src} alt={props.alt} className="mb-1" height={"183px"} width={"240px"} onClick={handleClicks} />
+      <a href="#" className="movie-link" onMouseOver={showTrailer} onMouseOut={hideTrailer}>
+        <img src={src} alt={alt} className="mb-1" height="183px" width="240px" onClick={handleClicks} />
       </a>
       <div className="trailer" id="trailer"></div>
     </div>
-  );}
+  );
+};
