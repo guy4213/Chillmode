@@ -68,7 +68,7 @@ allowing users to do exclusive actions that cannot be done in other review websi
 <img src="AddingScreen(For_Admin_Only).png" width="1800" height="600">
 <br>
 <h2>Series List</h2>
-<img src="SeriesList.png" width="1800" height="600">
+<img src="SeriesList (3).png" width="1800" height="600">
 <br>
 <h2>Series Details</h2>
 <img src="seriesDetails.png" width="1800" height="600">
